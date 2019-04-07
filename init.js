@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import "./db";
 import app from "./app";
 import down from "./down";
+import schedule from "./schedule";
 
 dotenv.config();
 
@@ -13,5 +14,5 @@ const handleListening = () =>
   console.log(`✅  Listening on: http://localhost:${PORT}`);
 
 app.listen(PORT, handleListening);
-
 down();
+schedule();

@@ -2,56 +2,55 @@ import xlsx from "xlsx";
 import Sikdan from "./model/sikdan";
 import fs from "fs";
 
-let data = {
-  monday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Tuesday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Wensday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Thursday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Friday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Saturday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  sunday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  }
-};
-
 export const savedb = async () => {
+  let data = {
+    monday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Tuesday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Wensday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Thursday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Friday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Saturday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    sunday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    }
+  };
+  const workbook = xlsx.readFile("./public/sikdan.xlsx");
+  const first_sheet_name = workbook.SheetNames[0];
+  const ws = workbook.Sheets[first_sheet_name];
   try {
-    const workbook = xlsx.readFile("./public/sikdan.xlsx");
-    const first_sheet_name = workbook.SheetNames[0];
-    const ws = workbook.Sheets[first_sheet_name];
     if (ws["B2"] !== undefined) {
       data.monday.date += ws["B2"].w;
     }

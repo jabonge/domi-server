@@ -1,7 +1,6 @@
 const puppeteer = require("puppeteer");
 const download = require("download-file");
 import { savedb } from "./excel";
-//import schedule from "node-schedule";
 
 const crawling = async () => {
   try {
@@ -27,11 +26,11 @@ const crawling = async () => {
       filename: "sikdan.xlsx"
     };
 
-    download(url, options, function(err) {
+    download(url, options, async function(err) {
       if (err) {
         console.error(err);
       } else {
-        savedb();
+        await savedb();
       }
     });
     await page.close();
@@ -43,4 +42,3 @@ const crawling = async () => {
 };
 
 export default crawling;
-// const scheduler = schedule.scheduleJob("0 0 0 * * 6", crawling);
