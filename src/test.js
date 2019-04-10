@@ -1,4 +1,3 @@
-import Sikdan from "./model/sikdan";
 const xlsx = require("xlsx");
 
 let data = {
@@ -152,23 +151,5 @@ export function call(workbook) {
     }
   }
   console.log(data);
-  const {
-    monday,
-    Tuesday,
-    Wensday,
-    Thursday,
-    Friday,
-    Saturday,
-    sunday
-  } = data;
-  await Sikdan.create({
-    Monday: monday,
-    Tuesday,
-    Wensday,
-    Thursday,
-    Friday,
-    Saturday,
-    Sunday: sunday
-  });
-  await fs.unlinkSync(path.join(__dirname, "/public/sikdan.xlsx"));
+  const { monday, Tuesday, Wensday, Thursday, Friday, Saturday, sunday } = data;
 }
