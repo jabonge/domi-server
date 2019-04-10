@@ -47,10 +47,11 @@ export const savedb = async () => {
       dinner: []
     }
   };
-  const workbook = xlsx.readFile("./public/sikdan.xlsx");
-  const first_sheet_name = workbook.SheetNames[0];
-  const ws = workbook.Sheets[first_sheet_name];
+
   try {
+    const workbook = await xlsx.readFile("./public/sikdan.xlsx");
+    const first_sheet_name = workbook.SheetNames[0];
+    const ws = workbook.Sheets[first_sheet_name];
     if (ws["B2"] !== undefined) {
       data.monday.date += ws["B2"].w;
     }
