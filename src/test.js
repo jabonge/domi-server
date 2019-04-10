@@ -1,5 +1,6 @@
 const xlsx = require("xlsx");
 import Sikdan from "./model/sikdan";
+import fs from "fs";
 let data = {
   monday: {
     date: "",
