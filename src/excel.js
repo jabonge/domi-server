@@ -50,9 +50,7 @@ export const savedb = async () => {
   };
 
   try {
-    const workbook = await xlsx.readFile(
-      path.join(__dirname, "/public/sikdan.xlsx")
-    );
+    const workbook = xlsx.readFile(path.join(__dirname, "/public/sikdan.xlsx"));
     const first_sheet_name = workbook.SheetNames[0];
     const ws = workbook.Sheets[first_sheet_name];
     if (ws["B2"] !== undefined) {
