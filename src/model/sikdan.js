@@ -13,6 +13,10 @@ const SikdanSchema = new mongoose.Schema({
     type: Object,
     required: "isRequired"
   },
+  Thursday: {
+    type: Object,
+    required: "isRequired"
+  },
   Friday: {
     type: Object,
     required: "isRequired"
