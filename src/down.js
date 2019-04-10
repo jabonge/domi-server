@@ -1,3 +1,4 @@
+import path from "path";
 const puppeteer = require("puppeteer");
 const download = require("download-file");
 import { savedb } from "./excel";
@@ -25,15 +26,15 @@ const crawling = async () => {
     const url = href;
 
     const options = {
-      directory: "./public",
+      directory: path.join(__dirname, "/public"),
       filename: "sikdan.xlsx"
     };
 
-    download(url, options, async function(err) {
+    download(url, options, function(err) {
       if (err) {
         console.error(err);
       } else {
-        await savedb();
+        savedb();
       }
     });
     await page.close();

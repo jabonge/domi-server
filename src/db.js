@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb://localhost:27017/inha", { useNewUrlParser: true });
+dotenv.config();
+
+mongoose.connect(
+  process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL,
+  { useNewUrlParser: true }
+);
 
 const db = mongoose.connection;
 

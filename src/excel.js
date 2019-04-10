@@ -1,6 +1,7 @@
 import xlsx from "xlsx";
 import Sikdan from "./model/sikdan";
 import fs from "fs";
+import path from "path";
 
 export const savedb = async () => {
   let data = {
@@ -49,7 +50,9 @@ export const savedb = async () => {
   };
 
   try {
-    const workbook = await xlsx.readFile("./public/sikdan.xlsx");
+    const workbook = await xlsx.readFile(
+      path.join(__dirname, "/public/sikdan.xlsx")
+    );
     const first_sheet_name = workbook.SheetNames[0];
     const ws = workbook.Sheets[first_sheet_name];
     if (ws["B2"] !== undefined) {
@@ -162,7 +165,7 @@ export const savedb = async () => {
       Saturday,
       Sunday: sunday
     });
-    await fs.unlinkSync("./public/sikdan.xlsx");
+    await fs.unlinkSync(path.join(__dirname, "/public/sikdan.xlsx"));
   } catch (err) {
     console.error(err);
   }

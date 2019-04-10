@@ -4,7 +4,10 @@
   "description": "crawling",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node init.js"
+    "start": "npm run build && PRODUCTION=true forever start build/init.js",
+    "prebuild": "rm -rf build",
+    "build": "babel src --out-dir build",
+    "dev": "babel-node src/init.js"
   },
   "author": "jaebong",
   "license": "ISC",

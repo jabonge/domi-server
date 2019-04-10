@@ -6,7 +6,7 @@ import { Api } from "./api";
 const app = express();
 
 app.use(helmet());
-app.use(morgan("dev"));
+app.use(process.env.PRODUCTION ? morgan("combined") : morgan("dev"));
 app.get("/", Api);
 
 export default app;
