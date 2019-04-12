@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && PRODUCTION=true forever start build/init.js",
     "prebuild": "rm -rf build",
-    "build": "babel src --out-dir build",
+    "build": "babel src --out-dir build && cp -R src/views build",
     "dev": "babel-node src/init.js"
   },
   "author": "jaebong",
