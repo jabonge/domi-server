@@ -2,50 +2,6 @@ const xlsx = require("xlsx");
 import Sikdan from "./model/sikdan";
 import fs from "fs";
 import path from "path";
-let data = {
-  monday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Tuesday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Wensday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Thursday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Friday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  Saturday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  },
-  sunday: {
-    date: "",
-    moning: [],
-    lunch: [],
-    dinner: []
-  }
-};
 
 export function process_RS(stream, cb) {
   var buffers = [];
@@ -60,6 +16,50 @@ export function process_RS(stream, cb) {
 }
 
 export async function call(workbook) {
+  let data = {
+    monday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Tuesday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Wensday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Thursday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Friday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    Saturday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    },
+    sunday: {
+      date: "",
+      moning: [],
+      lunch: [],
+      dinner: []
+    }
+  };
   const first_sheet_name = workbook.SheetNames[0];
   const ws = workbook.Sheets[first_sheet_name];
   if (ws["B2"] !== undefined) {
