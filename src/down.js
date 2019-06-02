@@ -13,15 +13,13 @@ const crawling = async () => {
     await page.setUserAgent(
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
     );
-    await page.goto("http://dorm.inha.ac.kr/board_menu/list.aspx");
-    await page.click(
-      "#ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_BoardList_GridViewList>tbody>tr>td>a"
+    await page.goto(
+      "http://dept.inha.ac.kr/user/indexSub.do?codyMenuSeq=8420&siteId=dorm"
     );
-    await page.waitForSelector(".board_view");
+    await page.click("table>tbody>tr>td:nth-child(2)>a");
+    await page.waitForSelector(".view");
     const href = await page.evaluate(() => {
-      return document.querySelector(
-        ".board_view>table>tbody>tr:nth-child(7)>td>div>a"
-      ).href;
+      return document.querySelector(".file.noborder>div>p>a").href;
     });
     const url = href;
 
